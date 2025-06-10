@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ui_game2</string>
+
+    <integer name="text_ss">16</integer>
+    <integer name="text_s">24</integer>
+    <integer name="text_mm">28</integer>
+    <integer name="text_l">32</integer>
+
+
 </resources>
