@@ -1,10 +1,13 @@
 package com.todo.ui_game2;
 
+import static com.todo.ui_game2.R.*;
+
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class signup_page extends AppCompatActivity {
+public class signup_page_3 extends AppCompatActivity {
     public void paintText(TextView view, String src, ArrayList<String> text){
         SpannableString spannableString = new SpannableString(src);
         int color = ContextCompat.getColor(this, R.color.access);
@@ -31,37 +34,28 @@ public class signup_page extends AppCompatActivity {
 
         view.setText(spannableString);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_signup_page);
+        setContentView(R.layout.activity_signup_page3);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        String src = "By clicking continue, you agree to our \nTerms of Service  and  Privacy Policy.";
-        TextView terms = findViewById(R.id.terms);
-        ArrayList<String> text = new ArrayList<>();
-        text.add("Terms of Service");
-        text.add("Privacy Policy");
-
-        paintText(terms, src, text);
-
-        String src2 = "Already have an account? Log in >";
-        TextView login_have_account = findViewById(R.id.login_have_account);
-        ArrayList<String> textLogin = new ArrayList<>();
-        textLogin.add("Log in >");
-
-        paintText(login_have_account, src2, textLogin);
-
-        ImageView again = findViewById(R.id.btn_signup);
-        again.setOnClickListener(v -> {
+//        String src2 = "Already have an account? Log in >";
+//        TextView login_have_account = findViewById(R.id.login_have_account);
+//        ArrayList<String> textLogin = new ArrayList<>();
+//        textLogin.add("Log in >");
+//
+//        paintText(login_have_account, src2, textLogin);
+//
+        ImageView next = findViewById(R.id.btn_next);
+        next.setOnClickListener(v -> {
             Intent intent = new Intent(this, signup_page_2.class);
             startActivity(intent);
         });
-
     }
 }

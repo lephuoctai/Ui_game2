@@ -1,8 +1,10 @@
 package com.todo.ui_game2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -46,5 +48,11 @@ public class signup_page_2 extends AppCompatActivity {
 
         paintText(send_again, src, text);
 
+
+        ImageView again = findViewById(R.id.btn_signup);
+        again.setOnClickListener(v -> {
+            Intent intent = new Intent( this, signup_page_3.class);
+            startActivity(intent);
+        });
     }
 }
