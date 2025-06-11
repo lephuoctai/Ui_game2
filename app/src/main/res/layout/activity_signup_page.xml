@@ -67,8 +67,10 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
 
-                        android:hint="Email or Phone Number*"
+                        android:hint="Email or Phone Number *"
+                        android:textColorHint="@color/gray"
                         android:labelFor="@+id/email">
                         <EditText
                             android:id="@+id/email"
@@ -77,14 +79,108 @@
                             android:paddingHorizontal="16dp"
                             android:background="@drawable/text_input"
 
-                            android:text="a"
+                            android:text=""
                             android:fontFamily="sans-serif"
                             android:textSize="20sp"
                             android:textFontWeight="300"
                             android:textColor="@color/white"
+                            android:inputType="textEmailAddress"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:hint="Display Name *"
+                        android:textColorHint="@color/gray"
+                        android:labelFor="@+id/display_name">
+                        <EditText
+                            android:id="@+id/display_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:background="@drawable/text_input"
+
+                            android:text=""
+                            android:fontFamily="sans-serif"
+                            android:textSize="20sp"
+                            android:textFontWeight="300"
+                            android:textColor="@color/white"
+                            android:inputType="textPersonName"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:hint="Username *"
+                        android:textColorHint="@color/gray"
+                        android:labelFor="@+id/username">
+                        <EditText
+                            android:id="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:background="@drawable/text_input"
+
+                            android:text=""
+                            android:fontFamily="sans-serif"
+                            android:textSize="20sp"
+                            android:textFontWeight="300"
+                            android:textColor="@color/white"
+                            android:inputType="textPersonName"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:hint="Password *"
+                        android:textColorHint="@color/gray"
+                        android:labelFor="@+id/password">
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:background="@drawable/text_input"
+
+                            android:text=""
+                            android:fontFamily="sans-serif"
+                            android:textSize="20sp"
+                            android:textFontWeight="300"
+                            android:textColor="@color/white"
+                            android:inputType="textVisiblePassword"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:hint="Confirm Password *"
+                        android:textColorHint="@color/gray"
+                        android:labelFor="@+id/confirm_password">
+                        <EditText
+                            android:id="@+id/confirm_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:background="@drawable/text_input"
+
+                            android:text=""
+                            android:fontFamily="sans-serif"
+                            android:textSize="20sp"
+                            android:textFontWeight="300"
+                            android:textColor="@color/white"
+                            android:inputType="textVisiblePassword"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+                
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
