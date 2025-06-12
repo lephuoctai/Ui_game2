@@ -1,14 +1,8 @@
 package com.todo.ui_game2;
 
-import static com.todo.ui_game2.R.*;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class signup_page_3 extends AppCompatActivity {
+public class login_page extends AppCompatActivity {
     public void paintText(TextView view, String src, ArrayList<String> text){
         SpannableString spannableString = new SpannableString(src);
         int color = ContextCompat.getColor(this, R.color.access);
@@ -38,17 +32,18 @@ public class signup_page_3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_signup_page3);
+        setContentView(R.layout.activity_login_page);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        ImageView next = findViewById(R.id.btn_next);
-        next.setOnClickListener(v -> {
-            Intent intent = new Intent(this, signup_page_2.class);
-            startActivity(intent);
-        });
+        String src = "New to GamerPal? Sign Up >";
+        TextView terms = findViewById(R.id.login);
+        ArrayList<String> text = new ArrayList<>();
+        text.add("Sign Up >");
+
+        paintText(terms, src, text);
     }
 }
