@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    tools:context=".guest_page_2"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/step1"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/img_blank"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+
+        android:text="Feature 2"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
+        />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+        <ImageButton
+            android:id="@+id/btn_next_2"
+            android:layout_width="270dp"
+            android:layout_height="68dp"
+            android:contentDescription="bg_btn_solid"
+            android:background="@drawable/btn_solid"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="Next"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textFontWeight="500"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+
+            />
+    </FrameLayout>
+    <Button
+        android:id="@+id/btn_skip_intro_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+
+        android:text="Skip Intro"
+        android:textSize="16sp"
+
+        />
+</LinearLayout>

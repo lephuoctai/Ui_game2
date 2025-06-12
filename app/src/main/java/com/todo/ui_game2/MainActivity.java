@@ -45,5 +45,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        btn_continue_as_guest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, guest_page.class);
+            startActivity(intent);
+        });
     }
 }
