@@ -1,8 +1,11 @@
 package com.todo.ui_game2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -45,5 +48,17 @@ public class login_page extends AppCompatActivity {
         text.add("Sign Up >");
 
         paintText(terms, src, text);
+
+        Button btn_signup_with_google = findViewById(R.id.btn_signup_with_google);
+        btn_signup_with_google.setOnClickListener(v -> {
+            Intent intent = new Intent(this, login_gg.class);
+            startActivity(intent);
+        });
+
+        ImageButton btn_signup = findViewById(R.id.btn_signup);
+        btn_signup.setOnClickListener(v -> {
+            Intent intent = new Intent(this, loading_page.class);
+            startActivity(intent);
+        });
     }
 }

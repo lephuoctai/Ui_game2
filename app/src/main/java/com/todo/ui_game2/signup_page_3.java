@@ -47,7 +47,7 @@ public class signup_page_3 extends AppCompatActivity {
 
         ImageView next = findViewById(R.id.btn_next);
         next.setOnClickListener(v -> {
-            Intent intent = new Intent(this, signup_page_2.class);
+            Intent intent = new Intent(this, loading_page.class);
             startActivity(intent);
         });
     }

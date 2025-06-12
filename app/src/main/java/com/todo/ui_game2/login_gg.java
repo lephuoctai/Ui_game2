@@ -11,39 +11,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class login_gg extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login_gg);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        ImageButton btn_login = findViewById(R.id.btn_login);
-        ImageButton btn_signup = findViewById(R.id.btn_signup);
-        Button btn_signup_with_google = findViewById(R.id.btn_signup_with_google);
-        Button btn_continue_as_guest = findViewById(R.id.btn_continue_as_guest);
-
-        btn_signup.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, signup_page.class);
+        ImageButton btn_continue = findViewById(R.id.btn_continue);
+        btn_continue.setOnClickListener(v -> {
+            Intent intent = new Intent(this, signup_page_2.class);
             startActivity(intent);
         });
-
-        btn_login.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, login_page.class);
-            startActivity(intent);
-
-        });
-
-        btn_signup_with_google.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, login_gg.class);
-            startActivity(intent);
-        });
-
     }
 }
