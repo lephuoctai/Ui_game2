@@ -79,7 +79,7 @@ android:orientation="vertical">
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
 
-                    android:hint="Username"
+                    android:hint="Email"
                     android:textColorHint="@color/gray"
                     android:labelFor="@+id/username">
                     <EditText

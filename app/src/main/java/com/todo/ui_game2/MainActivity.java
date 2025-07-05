@@ -14,9 +14,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.todo.ui_game2.R;
 
 public class MainActivity extends AppCompatActivity {
+    public FirebaseAuth mAuth;
 
     private static final int RC_SIGN_IN = 1;
 
@@ -72,4 +75,18 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
     }
+
+//    public void OnStart() {
+//        mAuth = FirebaseAuth.getInstance();
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//
+//        if(currentUser != null){
+//            // Tắt để test login
+////            Intent intent = new Intent(MainActivity.this, loading_page.class);
+////            startActivity(intent);
+//            mAuth.signOut();
+//        }
+//    }
 }
