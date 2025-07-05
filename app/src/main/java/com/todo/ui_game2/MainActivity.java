@@ -11,7 +11,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static final int RC_SIGN_IN = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,21 @@ public class MainActivity extends AppCompatActivity {
         btn_continue_as_guest.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, guest_page.class);
             startActivity(intent);
+        });
+
+
+        Button btn_log_gg = findViewById(R.id.btn_signup_with_google);
+        // 1. Cấu hình tùy chọn đăng nhập
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // 2. Tạo client GoogleSignIn
+        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        btn_log_gg.setOnClickListener(v -> {
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
         });
     }
 }

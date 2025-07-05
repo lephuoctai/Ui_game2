@@ -2,8 +2,8 @@ package com.todo.ui_game2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +24,18 @@ public class login_gg extends AppCompatActivity {
             return insets;
         });
 
+        // 🔽 Nhận thông tin từ Intent
+        String name = getIntent().getStringExtra("name");
+        String email = getIntent().getStringExtra("email");
+
+        // 🔽 Gán vào TextView
+        TextView tvName = findViewById(R.id.tv_name);
+        TextView tvEmail = findViewById(R.id.tv_email);
+
+        tvName.setText("Xin chào: " + name);
+        tvEmail.setText("Email: " + email);
+
+        // 🔽 Chuyển tiếp
         ImageButton btn_continue = findViewById(R.id.btn_continue);
         btn_continue.setOnClickListener(v -> {
             Intent intent = new Intent(this, signup_page_2.class);

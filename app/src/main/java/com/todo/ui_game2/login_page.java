@@ -7,6 +7,7 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +16,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+
 import java.util.ArrayList;
 
 public class login_page extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 1;
+
     public void paintText(TextView view, String src, ArrayList<String> text){
         SpannableString spannableString = new SpannableString(src);
         int color = ContextCompat.getColor(this, R.color.access);
@@ -49,16 +59,50 @@ public class login_page extends AppCompatActivity {
 
         paintText(terms, src, text);
 
-        Button btn_signup_with_google = findViewById(R.id.btn_signup_with_google);
-        btn_signup_with_google.setOnClickListener(v -> {
-            Intent intent = new Intent(this, login_gg.class);
-            startActivity(intent);
-        });
-
         ImageButton btn_signup = findViewById(R.id.btn_signup);
         btn_signup.setOnClickListener(v -> {
             Intent intent = new Intent(this, loading_page.class);
             startActivity(intent);
         });
+
+        Button btn_log_gg = findViewById(R.id.btn_signup_with_google);
+        // 1. Cấu hình tùy chọn đăng nhập
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // 2. Tạo client GoogleSignIn
+        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        btn_log_gg.setOnClickListener(v -> {
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+        });
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                String name = account.getDisplayName();
+                String email = account.getEmail();
+
+                Intent intent = new Intent(this, login_gg.class);
+                Toast.makeText(this, "Đăng nhập thành công!\n"+ name +"\n" + email, Toast.LENGTH_SHORT).show();
+                intent.putExtra("name", name);
+                intent.putExtra("email", email);
+                startActivity(intent);
+
+                // Optional: finish() nếu không muốn quay lại màn này nữa
+                finish();
+
+            } catch (ApiException e) {
+                Toast.makeText(this, "Đăng nhập thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }
